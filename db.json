@@ -1,3 +1,28 @@
 {
-  "contacts": []
+  "contacts": [
+    {
+      "id": "Q4SQ-oWoz",
+      "name": "Mango",
+      "number": "459-12-56",
+      "isContactExists": false
+    },
+    {
+      "id": "32RkjrYd6",
+      "name": "Poly",
+      "number": "384-82-55",
+      "isContactExists": false
+    },
+    {
+      "id": "EvdXwNR0b",
+      "name": "Kiwi",
+      "number": "400-50-47",
+      "isContactExists": false
+    },
+    {
+      "id": "3FCUxPWt5",
+      "name": "Ajax",
+      "number": "500-55-45",
+      "isContactExists": false
+    }
+  ]
 }

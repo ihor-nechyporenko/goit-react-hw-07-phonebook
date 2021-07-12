@@ -7,14 +7,21 @@ import Header from './components/Header';
 import Form from './components/Form';
 import Filter from './components/Filter';
 import ContactList from './components/ContactList';
+import Loader from './components/Loader';
+import Error from './components/Error';
 
 import './common.css';
 import fadeStyles from './fade/fadeFilter.module.css';
 import fadeHeaderStyles from './fade/fadeHeader.module.css';
+import operations from './redux/phonebook-operations';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchContacts();
+  }
+
   render() {
-    const { contacts } = this.props;
+    const { contacts, isLoading, error } = this.props;
     const renderFilter = contacts.length > 0;
 
     return (
@@ -40,6 +47,9 @@ class App extends Component {
           <Filter />
         </CSSTransition>
 
+        {isLoading && <Loader />}
+        {error && <Error />}
+
         <CSSTransition
           in={true}
           appear
@@ -56,6 +66,12 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   contacts: state.phonebook.contacts,
+  isLoading: state.phonebook.loading,
+  error: state.phonebook.error,
 });
 
-export default connect(mapStateToProps, null)(App);
+const mapDispatchToProps = dispatch => ({
+  fetchContacts: () => dispatch(operations.fetchContacts()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
