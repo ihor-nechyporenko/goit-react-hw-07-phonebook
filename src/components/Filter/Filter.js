@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import actions from '../../redux/phonebook-actions';
+import * as actions from '../../redux/phonebook-actions';
 import styles from './Filter.module.css';
 
 const Filter = ({ value, onChange }) => {

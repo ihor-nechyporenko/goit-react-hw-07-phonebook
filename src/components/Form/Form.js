@@ -4,7 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 import shortid from 'shortid';
 
 import Notification from '../Notification';
-import actions from '../../redux/phonebook-actions';
+import operations from '../../redux/phonebook-operations';
 
 import styles from './Form.module.css';
 import fadeStyles from '../Notification/fadeNotification.module.css';
@@ -116,7 +116,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onSubmit: data => dispatch(actions.addContact(data)),
+  onSubmit: data => dispatch(operations.addContact(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form);
