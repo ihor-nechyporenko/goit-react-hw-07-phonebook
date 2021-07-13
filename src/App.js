@@ -9,11 +9,11 @@ import Filter from './components/Filter';
 import ContactList from './components/ContactList';
 import Loader from './components/Loader';
 import Error from './components/Error';
+import { operations, selectors } from './redux/phonebook';
 
 import './common.css';
 import fadeStyles from './fade/fadeFilter.module.css';
 import fadeHeaderStyles from './fade/fadeHeader.module.css';
-import operations from './redux/phonebook-operations';
 
 class App extends Component {
   componentDidMount() {
@@ -65,9 +65,9 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  contacts: state.phonebook.contacts,
-  isLoading: state.phonebook.loading,
-  error: state.phonebook.error,
+  contacts: selectors.getContacts(state),
+  isLoading: selectors.getLoading(state),
+  error: selectors.getError(state),
 });
 
 const mapDispatchToProps = dispatch => ({
